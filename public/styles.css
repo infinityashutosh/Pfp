@@ -8,12 +8,12 @@
     .glow-on-hover:hover {
       @apply text-white;
       text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.8),
-        0 0 20px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(66, 220, 219, 0.6),
-        0 0 70px rgba(66, 220, 219, 0.8),
-        0 0 80px rgba(66, 220, 219, 0.9);
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 20px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(66, 220, 219, 0.6),
+        0 0 40px rgba(66, 220, 219, 0.8),
+        0 0 60px rgba(66, 220, 219, 0.9);
     }
   }
 
@@ -22,12 +22,80 @@ html {
     /* overflow: hidden; */
 }
 
+.bg-col{
+    background-color: #101728; 
+}
+
+.slide-loop {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: #101728; 
+    padding: 20px 0;
+  }
+  
+  .loop {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    animation: slide 17s linear infinite;
+  }
+  
+  .loop img {
+    /* color: white; */
+    height: 5rem; /* Tailwind's h-20 */
+    width: auto;
+    opacity: 0.2;
+    transition: opacity 0.1s ease-in-out;
+    /* filter: grayscale(100%) brightness(70%);/ */
+  }
+  
+  .loop img:hover {
+    opacity: 1;
+    /* filter: grayscale(0%) brightness(100%); */
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .slide-loop:hover .loop {
+    /* animation-play-state: paused; */
+  }
+  
+  /* Optional: Add some fade at the edges */
+  .slide-loop::before, .slide-loop::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 100px;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .slide-loop::before {
+    left: 0;
+    /* background: linear-gradient(to right, #1f2937, transparent); */
+  }
+  
+  .slide-loop::after {
+    right: 0;
+    /* background: linear-gradient(to left, #1f2937, transparent); */
+  }
 
 .wrapper {
     /* position: absolute; */
-    height: 100vh;
+    overflow: hidden ;
+    height: 70vh;
     background: radial-gradient(ellipse at bottom, #06121f 0%,#191c31 100%);
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
